@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	   xmlns:aop="http://www.springframework.org/schema/aop">
+
+		<!--&lt;!&ndash; goto的action依赖关系 &ndash;&gt;-->
+	<!--<bean id="gotoAction" class="com.bishe.action.GotoAction" scope="prototype">-->
+	<!--</bean>-->
+
+
+	<!-- student的依赖关系 -->
+	<!-- dao层的依赖关系 -->
+	<bean id="studentDao" class="com.bishe.dao.StudentDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!--service层的依赖关系 -->
+	<bean id="studentServiceImpl" class="com.bishe.service.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="loginAction" class="com.bishe.action.LoginAction" scope="prototype">
+		<property name="studentServiceImpl" ref="studentServiceImpl"/>
+	</bean>
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="studentAction" class="com.bishe.action.StudentAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="managerService" ref="managerService"></property>	-->
+		<!--<property name="studentService" ref="studentService"></property>-->
+	<!-- -->
+	<!--</bean>-->
+
+
+	<!--&lt;!&ndash; manger的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="managerDao" class="com.bishe.dao.ManagerDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="managerService" class="com.bishe.service.ManagerService">-->
+		<!--<property name="managerDao" ref="managerDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="managerAction" class="com.bishe.action.ManagerAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="managerService" ref="managerService"></property>	-->
+		<!--<property name="teacherService" ref="teacherService"></property>	-->
+		<!--<property name="studentService" ref="studentService"></property>				-->
+	<!--</bean>-->
+
+
+	<!--&lt;!&ndash; teacher的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="teacherDao" class="com.bishe.dao.TeacherDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="teacherService" class="com.bishe.service.TeacherService">-->
+		<!--<property name="teacherDao" ref="teacherDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="teacherAction" class="com.bishe.action.TeacherAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="managerService" ref="managerService"></property>	-->
+		<!--<property name="teacherService" ref="teacherService"></property>	-->
+		<!--<property name="studentService" ref="studentService"></property>		-->
+	<!--</bean>-->
+
+
+	<!--&lt;!&ndash; treatise的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="treatiseDao" class="com.bishe.dao.TreatiseDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="treatiseService" class="com.bishe.service.TreatiseService">-->
+		<!--<property name="treatiseDao" ref="treatiseDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="treatiseAction" class="com.bishe.action.TreatiseAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="treatiseService" ref="treatiseService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; inform的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="informDao" class="com.bishe.dao.InformDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="informService" class="com.bishe.service.InformService">-->
+		<!--<property name="informDao" ref="informDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="informAction" class="com.bishe.action.InformAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="informService" ref="informService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; patent的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="patentDao" class="com.bishe.dao.PatentDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="patentService" class="com.bishe.service.PatentService">-->
+		<!--<property name="patentDao" ref="patentDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="patentAction" class="com.bishe.action.PatentAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="patentService" ref="patentService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; course的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="courseDao" class="com.bishe.dao.CourseDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="courseService" class="com.bishe.service.CourseService">-->
+		<!--<property name="courseDao" ref="courseDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="courseAction" class="com.bishe.action.CourseAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="courseService" ref="courseService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; project的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="projectDao" class="com.bishe.dao.ProjectDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="projectService" class="com.bishe.service.ProjectService">-->
+		<!--<property name="projectDao" ref="projectDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="projectAction" class="com.bishe.action.ProjectAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="projectService" ref="projectService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+    <!--&lt;!&ndash; news的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="newsDao" class="com.bishe.dao.NewsDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="newsService" class="com.bishe.service.NewsService">-->
+		<!--<property name="newsDao" ref="newsDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="newsAction" class="com.bishe.action.NewsAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="newsService" ref="newsService"></property>-->
+	<!--</bean>-->
+    <!-- -->
+    <!--&lt;!&ndash; call的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="callDao" class="com.bishe.dao.CallDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="callService" class="com.bishe.service.CallService">-->
+		<!--<property name="callDao" ref="callDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="callAction" class="com.bishe.action.CallAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="callService" ref="callService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; report的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="reportDao" class="com.bishe.dao.ReportDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="reportService" class="com.bishe.service.ReportService">-->
+		<!--<property name="reportDao" ref="reportDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="reportAction" class="com.bishe.action.ReportAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="reportService" ref="reportService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; visitor的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="visitorDao" class="com.bishe.dao.VisitorDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="visitorService" class="com.bishe.service.VisitorService">-->
+		<!--<property name="visitorDao" ref="visitorDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="visitorAction" class="com.bishe.action.VisitorAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="visitorService" ref="visitorService"></property>-->
+	<!--</bean>-->
+	<!-- -->
+	<!--&lt;!&ndash; contribution的依赖关系 &ndash;&gt;-->
+	<!--&lt;!&ndash; dao层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="contributionDao" class="com.bishe.dao.ContributionDao">-->
+		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash;service层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="contributionService" class="com.bishe.service.ContributionService">-->
+		<!--<property name="contributionDao" ref="contributionDao"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; action层的依赖关系 &ndash;&gt;-->
+	<!--<bean id="contributionAction" class="com.bishe.action.ContributionAction"-->
+		<!--scope="prototype">-->
+		<!--<property name="contributionService" ref="contributionService"></property>-->
+	<!--</bean>bean-->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>

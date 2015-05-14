@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-16 0:38:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bishe.entity.Student" table="STUDENT">
+        <id name="stuid" type="java.lang.Integer">
+            <column name="STUID" />
+            <generator class="native" />
+        </id>
+        <property name="stuname" type="java.lang.String">
+            <column name="STUNAME" />
+        </property>
+        <property name="stumail" type="java.lang.String" >
+            <column name="STUMAIL" />
+        </property>
+        <property name="stupassword" type="java.lang.String">
+            <column name="STUPASSWORD" />
+        </property>
+        <property name="stusex" type="java.lang.String">
+            <column name="STUSEX" />
+        </property>
+        <property name="stuage" type="java.lang.String">
+            <column name="STUAGE" />
+        </property>
+        <property name="subject" type="java.lang.String">
+            <column name="SUBJECT" />
+        </property>
+        <property name="page" type="java.lang.Integer">
+        <column name="PAGE" />
+    </property>
+    </class>
+</hibernate-mapping>
