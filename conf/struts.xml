@@ -27,6 +27,10 @@
 			<result name="input">register.jsp</result>
 			<result name="success">editcode.jsp</result>
 		</action>
+		<action name="login" class="loginAction" method="login">
+			<result name="input">login.jsp</result>
+			<result name="success">editcode.jsp</result>
+		</action>
 	</package>
 
 </struts>

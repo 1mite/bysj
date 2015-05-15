@@ -1,3 +1,5 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-gb" dir="ltr">
 <head>
@@ -13,10 +15,12 @@
     <script src="ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
     <style type="text/css" media="screen">
         body {
-            overflow: hidden;
+            overflow:visible;
         }
         #editor {
-            margin: 0;
+            width: auto;
+            height: auto;
+            margin: 10px;
             position: absolute;
             top: 3.2cm;
             bottom:1.8cm;
@@ -28,7 +32,6 @@
 <body class="tm-background">
 <nav class="tm-navbar uk-navbar uk-navbar-attached" style="background:#000000" >
     <div class="uk-container uk-container-center uk-margin-top">
-
         <a class="uk-navbar-brand uk-hidden-small " href="#"><img class="uk-linkx" src="piture/seu.png" width="50px" height="50px" title="JAVA" alt="JAVA"></a>
         <ul class="uk-navbar-nav uk-hidden-small">
             <li><a href="#">学习区</a></li>
@@ -38,8 +41,21 @@
             <li><a href="#" target="_blank">关于我们</a></li>
         </ul >
         <ul class="uk-navbar-nav uk-hidden-small uk-align-right">
-            <a href="#" class="uk-button-success uk-button-large uk-margin-small-right " >注册</a>
-            <a href="#" class="uk-button-primary uk-button-large">登陆</a>
+            <%
+                String username = (String) session.getAttribute("username");
+                if(username != null){
+            %>
+                    <a href="#" class="uk-icon-user uk-button-large  uk-margin-small-right " ><%=username%></a>
+            <%
+                }
+                else{
+            %>
+                <a href="#" class="uk-button-success uk-button-large uk-margin-small-right " >注册</a>
+                <a href="#" class="uk-button-primary uk-button-large">登陆</a>
+            <%
+                }
+            %>
+
         </ul>
 
         <a href="#tm-offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>

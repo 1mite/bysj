@@ -52,14 +52,9 @@ public class StudentServiceImpl{
         return list;
     }
 
-    public String login(String username, String password) {
+    public List<Student> login(String username, String password) {
         List<Student> ls = findStudentbyUsernamePassword(username, password);
-        if (ls == null ||ls.size() == 0){
-            return "ERRO";
-        }
-        else{
-            return "SUCCESS";
-        }
+            return ls;
     }
 
     private List<Student> findStudentbyUsernamePassword(String username, String password) {
